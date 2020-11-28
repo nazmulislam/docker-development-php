@@ -1,28 +1,20 @@
 version: '2'
 
 services:
-
     mysqlv8:
-
         image: mysql:8.0.21
         hostname: mysqlv8
         restart: always
         environment:
           - MYSQL_ROOT_PASSWORD=root
-
-
         ports:
           - 3306:3306
           - 33060:33060
-
         volumes:
-
           - ../EB-NFS/data/mysqlv8:/var/lib/mysql
           - ../EB-NFS:/var/nfs
           - ./docker/mysql8.0/conf.d:/etc/mysql/conf.d
           - ./log/mysql8.0:/var/log/mysql
-
-
         networks:
             - development.local.network
 
@@ -61,8 +53,6 @@ services:
 
        networks:
            - development.local.network
-
 networks:
     development.local.network:
         driver: bridge
-        
